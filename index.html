@@ -3,22 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AXIS Protocol | Troca Sul-Sul</title>
+    <title>AXIS Protocol | Rede de Intercâmbio</title>
     <style>
-        body { background: #121212; color: #E0E0E0; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .card { background: #1E1E1E; padding: 40px; border-radius: 15px; border-left: 5px solid #CCFF00; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; max-width: 350px; }
-        h1 { color: #CCFF00; margin-bottom: 10px; letter-spacing: 2px; }
+        body { background: #121212; color: #E0E0E0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .card { background: #1E1E1E; padding: 30px; border-radius: 15px; border-left: 5px solid #CCFF00; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; max-width: 400px; margin-bottom: 30px; }
+        h1 { color: #CCFF00; margin-bottom: 10px; letter-spacing: 2px; font-size: 1.8rem; }
         p { color: #A0A0A0; line-height: 1.6; font-size: 0.9rem; }
-        .btn { background: #CCFF00; color: #000; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; }
-        .btn:hover { background: #FFFFFF; }
+        .btn { background: #CCFF00; color: #000; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; width: 80%; }
+        .btn:hover { background: #FFFFFF; transform: scale(1.05); }
+        
+        /* Seção de Parceiros */
+        .partners-section { width: 100%; max-width: 450px; }
+        h2 { color: #CCFF00; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .partner-item { background: #1A1A1A; border: 1px solid #333; padding: 15px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .partner-info { text-align: left; }
+        .partner-name { color: #FFF; font-weight: bold; font-size: 0.85rem; display: block; }
+        .partner-tag { color: #CCFF00; font-size: 0.7rem; text-transform: uppercase; }
+        .status-dot { width: 8px; height: 8px; background: #00FF00; border-radius: 50%; display: inline-block; margin-right: 5px; }
     </style>
 </head>
 <body>
+
     <div class="card">
-        <h1>AXIS</h1>
-        <p>Protocolo soberano de intercâmbio técnico e saúde para o eixo Brasil-África.</p>
-        <p style="font-size: 0.7rem; color: #666;">STATUS: REDE ATIVA</p>
-        <a href="https://phantom.app/ul/v1/connect?app_url=https://axis-protocol.vercel.app&dapp_encryption_public_key=GW4tAHv7JnrhmzmuTJwaw9XoFJab1Vu9nF16dPNtxftS" class="btn">ENTRAR NA REDE</a>
+        <h1>AXIS PROTOCOL</h1>
+        <p>Infraestrutura soberana para intercâmbio técnico e liquidez Brasil-África.</p>
+        <div style="font-size: 0.7rem; color: #666; margin-top: 10px;">
+            <span class="status-dot"></span> SISTEMA ONLINE
+        </div>
+        <a href="https://phantom.app/ul/v1/connect?app_url=https://axis-protocol.vercel.app&dapp_encryption_public_key=GW4tAHv7JnrhmzmuTJwaw9XoFJab1Vu9nF16dPNtxftS" class="btn">CONECTAR CARTEIRA</a>
     </div>
+
+    <div class="partners-section">
+        <h2>Consultores Homologados</h2>
+        
+        <div class="partner-item">
+            <div class="partner-info">
+                <span class="partner-name">Eng. Especialista em Diagnóstico</span>
+                <span class="partner-tag">Manutenção Técnica</span>
+            </div>
+            <div style="color: #666; font-size: 0.7rem;">DISPONÍVEL</div>
+        </div>
+
+        <div class="partner-item">
+            <div class="partner-info">
+                <span class="partner-name">Gestão de Resíduos Hospitalares</span>
+                <span class="partner-tag">Protocolo de Saúde</span>
+            </div>
+            <div style="color: #666; font-size: 0.7rem;">DISPONÍVEL</div>
+        </div>
+
+        <div class="partner-item" style="border-style: dashed; opacity: 0.5;">
+            <div class="partner-info">
+                <span class="partner-name">Sua Vaga Aqui</span>
+                <span class="partner-tag">Intercâmbio Sul-Sul</span>
+            </div>
+            <div style="color: #CCFF00; font-size: 0.7rem;">CANDIDATAR-SE</div>
+        </div>
+    </div>
+
+    <footer style="margin-top: 40px; color: #444; font-size: 0.6rem; text-align: center;">
+        © 2026 AXIS PROTOCOL | BLOCKCHAIN DEPLOYED
+    </footer>
+
 </body>
 </html>

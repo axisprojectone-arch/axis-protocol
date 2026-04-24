@@ -6,47 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AXIS Protocol | Rede de Intercâmbio</title>
     <style>
-        body { background: #121212; color: #E0E0E0; font-family: sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        body { background: #121212; color: #E0E0E0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
         .card { background: #1E1E1E; padding: 30px; border-radius: 15px; border-left: 5px solid #CCFF00; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; max-width: 400px; margin-bottom: 30px; }
         h1 { color: #CCFF00; margin-bottom: 10px; letter-spacing: 2px; font-size: 1.8rem; }
         p { color: #A0A0A0; line-height: 1.6; font-size: 0.9rem; }
-        .btn { background: #CCFF00; color: #000; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; width: 80%; border: none; cursor: pointer; }
-        .btn:hover { background: #FFFFFF; transform: scale(1.05); }
+        .btn { background: #CCFF00; color: #000; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; width: 100%; border: none; cursor: pointer; text-align: center; box-sizing: border-box; }
+        .btn:hover { background: #FFFFFF; transform: scale(1.02); }
         
-        .form-container { background: #1A1A1A; padding: 20px; border-radius: 10px; width: 100%; max-width: 400px; border: 1px solid #333; margin-top: 20px; }
-        h2 { color: #CCFF00; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 15px; }
-        input, textarea { width: 100%; padding: 10px; margin-bottom: 10px; background: #222; border: 1px solid #444; color: white; border-radius: 4px; box-sizing: border-box; }
-        label { font-size: 0.8rem; color: #888; display: block; margin-bottom: 5px; text-align: left; }
+        .form-container { background: #1A1A1A; padding: 25px; border-radius: 12px; width: 100%; max-width: 400px; border: 1px solid #333; box-sizing: border-box; }
+        h2 { color: #CCFF00; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; background: #222; border: 1px solid #444; color: white; border-radius: 6px; box-sizing: border-box; font-size: 0.9rem; }
+        input:focus, textarea:focus { border-color: #CCFF00; outline: none; }
+        label { font-size: 0.75rem; color: #888; display: block; margin-bottom: 5px; text-align: left; text-transform: uppercase; }
+        
+        .status-tag { font-size: 0.65rem; color: #666; margin-top: 15px; display: flex; align-items: center; justify-content: center; }
+        .status-dot { width: 8px; height: 8px; background: #00FF00; border-radius: 50%; margin-right: 8px; box-shadow: 0 0 5px #00FF00; }
     </style>
 </head>
 <body>
 
     <div class="card">
         <h1>AXIS PROTOCOL</h1>
-        <p>Infraestrutura soberana para intercâmbio técnico e liquidez Brasil-África.</p>
+        <p>Infraestrutura soberana para intercâmbio técnico, saúde e liquidez descentralizada no eixo Brasil-África.</p>
+        
         <a href="https://phantom.app/ul/v1/connect?app_url=https://axis-protocol.vercel.app&dapp_encryption_public_key=GW4tAHv7JnrhmzmuTJwaw9XoFJab1Vu9nF16dPNtxftS" class="btn">CONECTAR CARTEIRA</a>
+        
+        <div class="status-tag">
+            <span class="status-dot"></span> GATEWAY WEB3 ATIVO
+        </div>
     </div>
 
     <div class="form-container">
         <h2>Candidatura de Consultor</h2>
-        <p style="font-size: 0.8rem; margin-bottom: 15px;">Candidate-se para listar seus serviços na rede AXIS e receber em ativos digitais.</p>
+        <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">Registe os seus serviços na rede AXIS para aceder a contratos internacionais e receber em ativos digitais.</p>
         
-        <form action="https://formspree.io/f/mqakpzoz" method="POST">
-            <label>Nome Completo / Empresa</label>
-            <input type="text" name="name" required placeholder="Ex: Dr. Silva ou Engenharia X">
+        <form action="https://formspree.io/f/xykllono" method="POST">
+            <label>Nome ou Organização</label>
+            <input type="text" name="nome" required placeholder="Ex: Engenharia Sul-Sul">
             
-            <label>E-mail de Contacto</label>
-            <input type="email" name="_replyto" required placeholder="seu@email.com">
+            <label>E-mail Profissional</label>
+            <input type="email" name="_replyto" required placeholder="contacto@email.com">
             
             <label>Especialidade Técnica</label>
-            <textarea name="message" rows="3" required placeholder="Descreva brevemente o seu serviço..."></textarea>
+            <textarea name="especialidade" rows="3" required placeholder="Descreva brevemente a sua área de atuação..."></textarea>
             
-            <button type="submit" class="btn">ENVIAR CANDIDATURA</button>
+            <input type="hidden" name="_subject" value="Nova Candidatura AXIS Protocol">
+            <button type="submit" class="btn">ENVIAR PARA HOMOLOGAÇÃO</button>
         </form>
     </div>
 
-    <footer style="margin-top: 40px; color: #444; font-size: 0.6rem; text-align: center;">
-        © 2026 AXIS PROTOCOL | SECURE GATEWAY ACTIVE
+    <footer style="margin-top: 50px; color: #444; font-size: 0.6rem; text-align: center; letter-spacing: 1px;">
+        © 2026 AXIS PROTOCOL | ENCRYPTED DEPLOYMENT | SOLANA MAINNET
     </footer>
 
 </body>

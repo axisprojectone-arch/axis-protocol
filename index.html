@@ -1,24 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AXIS Protocol | Rede de Intercâmbio</title>
+    <title>AXIS Protocol | Trust & Exchange</title>
     <style>
         body { background: #121212; color: #E0E0E0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-        .card { background: #1E1E1E; padding: 30px; border-radius: 15px; border-left: 5px solid #CCFF00; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; max-width: 400px; margin-bottom: 30px; }
+        .card { background: #1E1E1E; padding: 30px; border-radius: 15px; border-left: 5px solid #CCFF00; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; max-width: 450px; margin-bottom: 25px; width: 100%; box-sizing: border-box; }
         h1 { color: #CCFF00; margin-bottom: 10px; letter-spacing: 2px; font-size: 1.8rem; }
         p { color: #A0A0A0; line-height: 1.6; font-size: 0.9rem; }
-        .btn { background: #CCFF00; color: #000; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; width: 100%; border: none; cursor: pointer; text-align: center; box-sizing: border-box; }
+        .btn { background: #CCFF00; color: #000; padding: 14px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px; transition: 0.3s; width: 100%; border: none; cursor: pointer; text-align: center; box-sizing: border-box; }
         .btn:hover { background: #FFFFFF; transform: scale(1.02); }
         
-        .form-container { background: #1A1A1A; padding: 25px; border-radius: 12px; width: 100%; max-width: 400px; border: 1px solid #333; box-sizing: border-box; }
-        h2 { color: #CCFF00; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; background: #222; border: 1px solid #444; color: white; border-radius: 6px; box-sizing: border-box; font-size: 0.9rem; }
-        input:focus, textarea:focus { border-color: #CCFF00; outline: none; }
-        label { font-size: 0.75rem; color: #888; display: block; margin-bottom: 5px; text-align: left; text-transform: uppercase; }
+        .section-container { background: #1A1A1A; padding: 25px; border-radius: 12px; width: 100%; max-width: 450px; border: 1px solid #333; box-sizing: border-box; margin-bottom: 20px; }
+        h2 { color: #CCFF00; font-size: 1rem; text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; letter-spacing: 1px; }
         
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; background: #222; border: 1px solid #444; color: white; border-radius: 6px; box-sizing: border-box; font-size: 0.9rem; }
+        label { font-size: 0.75rem; color: #888; display: block; margin-bottom: 5px; text-transform: uppercase; }
+        
+        .trust-model { border-left: 3px solid #CCFF00; background: #151515; padding: 15px; border-radius: 4px; }
+        .trust-model ul { padding-left: 20px; margin: 10px 0 0 0; }
+        .trust-model li { font-size: 0.75rem; color: #888; margin-bottom: 5px; }
+
         .status-tag { font-size: 0.65rem; color: #666; margin-top: 15px; display: flex; align-items: center; justify-content: center; }
         .status-dot { width: 8px; height: 8px; background: #00FF00; border-radius: 50%; margin-right: 8px; box-shadow: 0 0 5px #00FF00; }
     </style>
@@ -36,27 +39,37 @@
         </div>
     </div>
 
-    <div class="form-container">
+    <div class="section-container trust-model">
+        <h2>Confiança e Credit Scoring</h2>
+        <p style="font-size: 0.8rem; color: #BBB; margin: 0;">
+            Validamos a integridade e competência técnica através de modelos de derivação de confiança e score de crédito on-chain.
+        </p>
+        <ul>
+            <li>Criptografia de privacidade (Zero Knowledge)</li>
+            <li>Pontuação por histórico de conformidade</li>
+            <li>Verificação de ativos e liquidez internacional</li>
+        </ul>
+    </div>
+
+    <div class="section-container">
         <h2>Candidatura de Consultor</h2>
-        <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">Registe os seus serviços na rede AXIS para aceder a contratos internacionais e receber em ativos digitais.</p>
-        
         <form action="https://formspree.io/f/xykllono" method="POST">
             <label>Nome ou Organização</label>
-            <input type="text" name="nome" required placeholder="Ex: Engenharia Sul-Sul">
+            <input type="text" name="nome" required placeholder="Ex: Engenharia ou Saúde Técnica">
             
             <label>E-mail Profissional</label>
             <input type="email" name="_replyto" required placeholder="contacto@email.com">
             
-            <label>Especialidade Técnica</label>
-            <textarea name="especialidade" rows="3" required placeholder="Descreva brevemente a sua área de atuação..."></textarea>
+            <label>Especialidade</label>
+            <textarea name="especialidade" rows="3" required placeholder="Descreva sua área de atuação..."></textarea>
             
             <input type="hidden" name="_subject" value="Nova Candidatura AXIS Protocol">
-            <button type="submit" class="btn">ENVIAR PARA HOMOLOGAÇÃO</button>
+            <button type="submit" class="btn">SOLICITAR HOMOLOGAÇÃO</button>
         </form>
     </div>
 
-    <footer style="margin-top: 50px; color: #444; font-size: 0.6rem; text-align: center; letter-spacing: 1px;">
-        © 2026 AXIS PROTOCOL | ENCRYPTED DEPLOYMENT | SOLANA MAINNET
+    <footer style="margin-top: 30px; color: #444; font-size: 0.6rem; text-align: center; letter-spacing: 1px;">
+        © 2026 AXIS PROTOCOL | ENCRYPTED DEPLOYMENT | V2.0 TRUST MODEL
     </footer>
 
 </body>

@@ -3,55 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AXIS Protocol | Credit Scoring</title>
+    <title>AXIS Protocol | Global Credit Scoring</title>
     <style>
-        body { background: #0d0d0d; color: #e0e0e0; font-family: sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        :root { --primary: #CCFF00; --bg: #0d0d0d; --card: #1a1a1a; --text: #e0e0e0; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
         .container { max-width: 450px; width: 100%; }
-        .card { background: #1a1a1a; padding: 25px; border-radius: 12px; border-left: 5px solid #CCFF00; margin-bottom: 20px; text-align: center; }
-        h1 { color: #CCFF00; font-size: 1.6rem; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 1px; }
-        h2 { color: #CCFF00; font-size: 1rem; text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        p { color: #888; font-size: 0.85rem; line-height: 1.5; }
-        .btn { background: #CCFF00; color: #000; padding: 15px; border-radius: 6px; text-decoration: none; font-weight: bold; display: block; margin: 20px 0; text-align: center; }
+        .card { background: var(--card); padding: 25px; border-radius: 15px; border-left: 4px solid var(--primary); margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        h1 { color: var(--primary); font-size: 1.8rem; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
+        h2 { color: var(--primary); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 8px; letter-spacing: 1px; }
+        p { color: #888; font-size: 0.85rem; line-height: 1.6; }
+        .btn { background: var(--primary); color: #000; padding: 16px; border-radius: 8px; text-decoration: none; font-weight: bold; display: block; margin: 20px 0; text-align: center; border: none; width: 100%; cursor: pointer; transition: 0.3s; }
+        .btn:hover { opacity: 0.8; transform: scale(1.02); }
         
-        .grid-parceiros { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
-        .parceiro { background: #222; padding: 10px; border-radius: 5px; font-size: 0.7rem; border: 1px solid #333; }
-        .dot { color: #CCFF00; margin-right: 5px; }
+        .grid-parceiros { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
+        .parceiro { background: #222; padding: 12px; border-radius: 8px; font-size: 0.7rem; border: 1px solid #333; }
+        .dot { color: var(--primary); margin-right: 5px; }
 
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; background: #111; border: 1px solid #444; color: #fff; border-radius: 5px; box-sizing: border-box; }
-        label { font-size: 0.7rem; color: #666; display: block; margin-bottom: 5px; text-transform: uppercase; }
+        .feature-item { font-size: 0.75rem; color: #bbb; margin-bottom: 10px; display: flex; align-items: flex-start; }
+        .feature-item span { color: var(--primary); margin-right: 12px; font-weight: bold; }
+
+        input, textarea { width: 100%; padding: 14px; margin-bottom: 15px; background: #111; border: 1px solid #444; color: #fff; border-radius: 8px; box-sizing: border-box; }
+        label { font-size: 0.7rem; color: #777; display: block; margin-bottom: 5px; text-transform: uppercase; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="card">
+        <div class="card" style="text-align: center; border-left: none; border-bottom: 4px solid var(--primary);">
             <h1>AXIS PROTOCOL</h1>
-            <p>Infraestrutura soberana de Credit Scoring e Trust Derivation para o eixo Brasil-África.</p>
-            <a href="https://phantom.app/ul/v1/connect?app_url=https://axis-protocol.vercel.app&dapp_encryption_public_key=GW4tAHv7JnrhmzmuTJwaw9XoFJab1Vu9nF16dPNtxftS" class="btn">CONECTAR CARTEIRA</a>
+            <p>Protocolo soberano de Trust Derivation e liquidez Web3 entre Brasil e África.</p>
+            <a href="https://phantom.app/ul/v1/connect?app_url=https://axis-protocol.vercel.app&dapp_encryption_public_key=GW4tAHv7JnrhmzmuTJwaw9XoFJab1Vu9nF16dPNtxftS" class="btn">CONECTAR CARTEIRA PHANTOM</a>
         </div>
 
-        <div class="card" style="text-align: left;">
-            <h2>Rede Homologada</h2>
+        <div class="card">
+            <h2>Tecnologia de Validação</h2>
+            <div class="feature-item"><span>[SK]</span> <strong>Scoring Model:</strong> Algoritmo de risco auditável via Blockchain.</div>
+            <div class="feature-item"><span>[ZK]</span> <strong>Privacy:</strong> Proteção de dados via Zero-Knowledge Proofs (Aleo).</div>
+            <div class="feature-item"><span>[TX]</span> <strong>Settlement:</strong> Liquidez instantânea em USDC/SOL.</div>
+        </div>
+
+        <div class="card">
+            <h2>Especialistas Homologados</h2>
             <div class="grid-parceiros">
-                <div class="parceiro"><span class="dot">●</span><strong>E. Karagöz</strong><br>Web3 Developer</div>
+                <div class="parceiro"><span class="dot">●</span><strong>E. Karagöz</strong><br>Web3 Lead</div>
                 <div class="parceiro"><span class="dot">●</span><strong>K. Bassey</strong><br>Software Expert</div>
             </div>
-            <p style="font-size: 0.7rem; margin-top: 10px;">+12 especialistas em auditoria de score v2.0</p>
+            <p style="font-size: 0.7rem; margin-top: 12px; text-align: center;">Auditoria de Score v2.0 em execução.</p>
         </div>
 
-        <div class="card" style="text-align: left;">
-            <h2>Candidatura Técnica</h2>
+        <div class="card">
+            <h2>Solicitar Análise de Score</h2>
             <form action="https://formspree.io/f/xykllono" method="POST">
-                <label>Nome / Organização</label>
-                <input type="text" name="name" required>
-                <label>Área de Atuação</label>
-                <textarea name="message" rows="3" required></textarea>
-                <button type="submit" class="btn" style="width: 100%; cursor: pointer; border: none;">SOLICITAR SCORE</button>
+                <label>Nome ou Empresa</label>
+                <input type="text" name="name" required placeholder="Ex: Dr. Silva ou Clínica X">
+                <label>Especialidade / Objetivo</label>
+                <textarea name="message" rows="3" required placeholder="Descreva sua atuação técnica..."></textarea>
+                <button type="submit" class="btn">VALIDAR MINHA CANDIDATURA</button>
             </form>
         </div>
 
-        <footer style="text-align: center; color: #444; font-size: 0.6rem;">
-            © 2026 AXIS PROTOCOL | ENCRYPTED DEPLOYMENT
+        <footer style="text-align: center; color: #444; font-size: 0.65rem; padding: 10px 0 30px 0;">
+            MAINNET DEPLOYMENT | SOLANA & ALEO NETWORKS | 2026
         </footer>
     </div>
 

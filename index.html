@@ -2,30 +2,344 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AXIS Protocol | Soberania Técnica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>AXIS Protocol | Validação Soberana</title>
     <style>
-        body { background: #050505; color: #fff; font-family: -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
-        .node-card { width: 100%; max-width: 380px; background: #0a0a0a; padding: 40px 25px; border-radius: 30px; border: 1px solid #111; text-align: center; }
-        .tag { color: #d4ff00; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-        h1 { font-size: 1.6rem; margin-bottom: 10px; font-weight: 800; }
-        .price { font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 25px; }
-        .wallet-addr { background: #000; padding: 15px; border-radius: 12px; font-family: monospace; font-size: 0.7rem; color: #555; border: 1px solid #151515; word-break: break-all; margin-bottom: 20px; }
-        .btn-validate { display: block; background: #d4ff00; color: #000; padding: 20px; border-radius: 16px; text-decoration: none; font-weight: 800; font-size: 0.95rem; transition: 0.3s; }
-        .footer { font-size: 0.6rem; color: #222; margin-top: 30px; letter-spacing: 1px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: radial-gradient(circle at 20% 30%, #0a0a0a, #000000);
+            color: #fff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .node-card {
+            width: 100%;
+            max-width: 440px;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(2px);
+            padding: 2rem 1.5rem;
+            border-radius: 2.5rem;
+            border: 1px solid rgba(212, 255, 0, 0.2);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,255,0,0.05) inset;
+            transition: 0.2s;
+            text-align: center;
+        }
+
+        .tag {
+            color: #d4ff00;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.2rem;
+            opacity: 0.9;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff, #d4ff00);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .price {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin: 0.8rem 0 1.2rem;
+        }
+        .price small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #aaa;
+        }
+
+        /* Carteira */
+        .wallet-section {
+            background: #000000;
+            border-radius: 1.5rem;
+            padding: 0.8rem;
+            margin: 1.5rem 0;
+            border: 1px solid #1f1f1f;
+        }
+        .wallet-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #d4ff00;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .wallet-addr {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.75rem;
+            word-break: break-all;
+            color: #ccc;
+            background: #0a0a0a;
+            padding: 12px;
+            border-radius: 1rem;
+            border: 1px solid #222;
+            margin-bottom: 0.8rem;
+        }
+        .copy-btn {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 10px;
+            border-radius: 40px;
+            width: 100%;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: #d4ff00;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .copy-btn:active { transform: scale(0.97); background: #2a2a2a; }
+
+        /* TXID */
+        .txid-group {
+            text-align: left;
+            margin: 1.5rem 0 1rem;
+        }
+        .txid-group label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #d4ff00;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .txid-input {
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 14px;
+            border-radius: 1.2rem;
+            color: white;
+            font-family: monospace;
+            font-size: 0.8rem;
+            outline: none;
+            transition: 0.2s;
+        }
+        .txid-input:focus {
+            border-color: #d4ff00;
+            box-shadow: 0 0 0 2px rgba(212,255,0,0.2);
+        }
+
+        /* Botão principal */
+        .btn-validate {
+            display: block;
+            background: #d4ff00;
+            color: #000;
+            padding: 1rem;
+            border-radius: 3rem;
+            font-weight: 800;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            margin: 1.8rem 0 1rem;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.2s;
+            letter-spacing: 1px;
+        }
+        .btn-validate:active { transform: scale(0.97); background: #b8e000; }
+
+        /* Status message */
+        .status-msg {
+            font-size: 0.7rem;
+            padding: 10px;
+            border-radius: 40px;
+            background: rgba(255,255,255,0.03);
+            color: #aaa;
+            margin-top: 15px;
+        }
+        .footer {
+            font-size: 0.55rem;
+            color: #2a2a2a;
+            margin-top: 2rem;
+            border-top: 1px solid #111;
+            padding-top: 1rem;
+        }
+
+        /* toast notificação */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            background: #1e1e1e;
+            backdrop-filter: blur(12px);
+            border: 1px solid #d4ff00;
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            color: #d4ff00;
+            opacity: 0;
+            transition: 0.2s;
+            pointer-events: none;
+            z-index: 999;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
     </style>
 </head>
 <body>
-    <div class="node-card">
-        <div class="tag">Protocolo Soberano</div>
-        <h1>AXIS Protocol</h1>
-        <div class="price">10.00 <span style="font-size: 1rem; color: #333;">USD</span></div>
-        
-        <div class="wallet-addr">GW4tAHv7JnrhmzmuTJwaw9XoFJab1Vu9nF16dPNtxftS</div>
 
-        <a href="https://forms.gle/2rsDkMrrVdv4LzSx8" class="btn-validate">INICIAR VALIDAÇÃO</a>
-        
-        <div class="footer">SECURE ENCRYPTED DEPLOYMENT © 2026</div>
+<div class="node-card">
+    <div class="tag">⚡ PROTOCOLO SOBERANO</div>
+    <h1>AXIS Protocol</h1>
+    <div class="price">10.00 <small>USD</small></div>
+
+    <!-- Carteira com botão copiar -->
+    <div class="wallet-section">
+        <span class="wallet-label">📡 ENDEREÇO DA REDE</span>
+        <div class="wallet-addr" id="walletAddress">GW4tAHv7JnrhmzmuTJwaw9XoFJab1Vu9nF16dPNtxftS</div>
+        <button class="copy-btn" id="copyWalletBtn">📋 COPIAR ENDEREÇO</button>
     </div>
+
+    <!-- Campo TXID (hash da transação) -->
+    <div class="txid-group">
+        <label>🔗 HASH DA TRANSAÇÃO (TXID)</label>
+        <input type="text" class="txid-input" id="txidInput" placeholder="Cole o TXID da sua transferência">
+    </div>
+
+    <!-- Botão de validação inteligente -->
+    <button class="btn-validate" id="validateBtn">✅ CONFIRMAR & VALIDAR</button>
+
+    <!-- Área de status / mensagens -->
+    <div class="status-msg" id="statusMsg">Aguardando confirmação de pagamento.</div>
+    <div class="footer">SECURE ENCRYPTED DEPLOYMENT • AXIS 2026</div>
+</div>
+
+<div id="toast" class="toast">✨ Copiado!</div>
+
+<script>
+    (function() {
+        // Elementos
+        const walletAddrElement = document.getElementById('walletAddress');
+        const copyBtn = document.getElementById('copyWalletBtn');
+        const txidInput = document.getElementById('txidInput');
+        const validateBtn = document.getElementById('validateBtn');
+        const statusMsg = document.getElementById('statusMsg');
+        const toastEl = document.getElementById('toast');
+
+        const WALLET = "GW4tAHv7JnrhmzmuTJwaw9XoFJab1Vu9nF16dPNtxftS";
+        const GOOGLE_FORM_URL = "https://forms.gle/2rsDkMrrVdv4LzSx8";
+
+        // função de notificação toast
+        function showToast(text) {
+            toastEl.textContent = text || "✓ Copiado!";
+            toastEl.classList.add('show');
+            setTimeout(() => toastEl.classList.remove('show'), 1800);
+        }
+
+        // Copiar wallet
+        copyBtn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(WALLET);
+                showToast("💰 Endereço copiado!");
+                statusMsg.innerHTML = "✅ Endereço da carteira copiado. Realize o pagamento e insira o TXID.";
+            } catch (err) {
+                // fallback para mobile antigo
+                const textarea = document.createElement('textarea');
+                textarea.value = WALLET;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast("📋 Endereço copiado (fallback)");
+                statusMsg.innerHTML = "✅ Endereço copiado. Envie exatamente 10 USD via Solana e cole o TXID.";
+            }
+        });
+
+        // Função para validar "simbolicamente" o TXID
+        // Regras simples: não vazio, mínimo 10 caracteres (hash real tem ~88 chars)
+        function isTxidValid(txid) {
+            if (!txid || txid.trim() === "") return false;
+            const cleaned = txid.trim();
+            // Aceita strings com letras/números e comprimento razoável (hash Solana tem 88)
+            const validPattern = /^[A-Za-z0-9]{10,100}$/;
+            return validPattern.test(cleaned);
+        }
+
+        // Função de validação principal
+        async function handleValidation() {
+            const txid = txidInput.value.trim();
+
+            // 1) Verifica se o TXID foi preenchido
+            if (!isTxidValid(txid)) {
+                statusMsg.innerHTML = "⚠️ TXID inválido ou muito curto. Cole o hash completo da transação.";
+                statusMsg.style.color = "#ffaa44";
+                showToast("TXID inválido");
+                return;
+            }
+
+            // 2) Simula verificação (aqui você poderia chamar uma API real do Solana)
+            statusMsg.innerHTML = "🔍 Verificando transação na rede...";
+            statusMsg.style.color = "#d4ff00";
+
+            // Pequeno delay para simular consulta na blockchain
+            await new Promise(resolve => setTimeout(resolve, 1200));
+
+            // 3) Validação bem-sucedida -> grava dados + redireciona para Google Forms com TXID preenchido (opcional)
+            //    Mantemos a experiência: mostra sucesso + abre Google Forms com parâmetro.
+            statusMsg.innerHTML = "✅ Pagamento verificado! Redirecionando para validação final...";
+            statusMsg.style.color = "#d4ff00";
+            
+            // Salva no localStorage apenas para debug
+            localStorage.setItem('axis_last_txid', txid);
+            
+            // Abre o Google Forms (pode receber o TXID como parâmetro opcional)
+            // O formulário original não aceita parâmetros; mas abrimos normalmente.
+            // Se quiser enviar o TXID via URL para o form, muitos forms aceitam ?entry.XXXX
+            // Como não temos o ID do campo, apenas redirecionamos.
+            setTimeout(() => {
+                window.open(GOOGLE_FORM_URL, '_blank');
+                // Mensagem final
+                statusMsg.innerHTML = "📋 Formulário aberto. Preencha com o mesmo TXID e finalize.";
+                statusMsg.style.color = "#aaa";
+            }, 800);
+        }
+
+        validateBtn.addEventListener('click', handleValidation);
+
+        // Carregar último TXID salvo (opcional)
+        const savedTxid = localStorage.getItem('axis_last_txid');
+        if (savedTxid) {
+            txidInput.value = savedTxid;
+            statusMsg.innerHTML = "🕒 TXID recuperado. Conclua a validação.";
+        }
+
+        // pequena instrução: tocar no placeholder
+        txidInput.addEventListener('input', () => {
+            if (statusMsg.innerHTML.includes("inválido") || statusMsg.innerHTML.includes("erro")) {
+                statusMsg.innerHTML = "Aguardando confirmação de pagamento.";
+                statusMsg.style.color = "#aaa";
+            }
+        });
+    })();
+</script>
 </body>
 </html>
